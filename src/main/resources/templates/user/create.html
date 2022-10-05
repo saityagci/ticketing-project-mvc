@@ -100,7 +100,7 @@
                                                     <label>Choose a Role</label>
                                                     <select name="role" th:field="*{role}" class="custom-select">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="role: ${}"></option>
+                                                        <option th:each="role: ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -131,19 +131,19 @@
 
                 <!-- ------------------------TABLE START----------------------------- -->
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-lg-12 col-md-12">
                         <div class="col-md-12">
                             <section class="panel">
                                 <header class="panel-heading">
                                     <h2 class="panel-title">User List</h2>
                                 </header>
-                                <div class="panel-body">
+                                <div class="panel-body" >
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
+                                        <table class="table table-striped"  >
+                                            <thead >
                                             <tr>
-                                                <th scope="col">Name</th>
+                                                <th scope="col" >Name</th>
                                                 <th scope="col">Email(username)</th>
                                                 <th scope="col">Gender</th>
                                                 <th scope="col">Phone</th>
@@ -152,14 +152,14 @@
                                             </tr>
                                             </thead>
 
-                                            <tbody>
+                                            <tbody >
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="user:${users}" th:value="${user}">
+                                                <td th:text="${user.firstName+ ' '+user.lastName}"></td>
+                                                <td th:text="${user.userName}"></td>
+                                                <td th:text="${user.gender.value}"></td>
+                                                <td th:text="${user.phone}"></td>
+                                                <td th:text="${user.role.description}"></td>
                                                 <td class="actions">
                                                     <a href="#"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
                                                     <a href="#" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
