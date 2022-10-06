@@ -35,6 +35,7 @@ public class UserServiceImpl extends AbstractMapService<UserDTO,String> implemen
         return super.findById(id);
     }
 
+
     @Override
     public List<UserDTO> findManager() {
         return super.findAll().stream()
