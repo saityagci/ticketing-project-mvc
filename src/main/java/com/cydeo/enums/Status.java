@@ -6,7 +6,7 @@ public enum Status {
     private Status(String value){
         this.value=value;
     }
-    public String gerValue(){
+    public String getValue(){
         return value;
     }
 }
